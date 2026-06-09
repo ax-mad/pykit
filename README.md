@@ -1,6 +1,4 @@
-# Utils
 
-```markdown
 # pykit
 
 Personal Python utilities.
@@ -34,11 +32,6 @@ pykit/
 ```
 
 ## Install
-
-```bash
-pip install git+https://github.com/<you>/pykit.git
-```
-```
 
 This gives you a clean contract: the table explains what exists now, the note gives you permission to reorganize later without guilt, and the structure is obvious to future-you.
 
