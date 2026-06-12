@@ -1,5 +1,4 @@
 from os import getenv
-from utils import log
 
 # ALTERNATIVE:
 

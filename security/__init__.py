@@ -1,1 +1,1 @@
-from .authenticator import Authenticator, Token
+from .authenticator import Authenticator
