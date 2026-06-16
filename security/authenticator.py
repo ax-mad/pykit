@@ -38,7 +38,7 @@ class Authenticator:
     def __init__(self, api_key:str):
         self.header_scheme = security.APIKeyHeader(name="X-API-Key", auto_error=False)
         self.api_key = api_key
-        self._dependency = self._build_dependency()
+        # self._dependency = self._build_dependency()
     
     def __call__(self) -> Depends:
         """Returns the dependency OBJECT (fastapi.Depends)."""
