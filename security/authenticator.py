@@ -1,5 +1,4 @@
 
-from fastapi import security, Depends, HTTPException  # type: ignore
 from secrets import compare_digest
 
 # THE SECURITY COMPONENT OF THE APP.
@@ -36,11 +35,13 @@ class Authenticator:
     """My FastAPI authenticator"""
 
     def __init__(self, api_key:str):
+        from fastapi import security # type:ignore
         self.header_scheme = security.APIKeyHeader(name="X-API-Key", auto_error=False)
         self.api_key = api_key
         # self._dependency = self._build_dependency()
     
-    def __call__(self) -> Depends:
+    def __call__(self): # -> Depends
+        from fastapi import Depends, HTTPException  # type: ignore
         """Returns the dependency OBJECT (fastapi.Depends)."""
         async def verify_key(key: str = Depends(self.header_scheme)):
             if not key or not compare_digest(key, self.api_key):
