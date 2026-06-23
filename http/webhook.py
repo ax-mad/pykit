@@ -1,9 +1,12 @@
-import sys, os, json
+import os, json
 from dataclasses import dataclass
 
 
 @dataclass
 class Webhook:
+    """
+    Generic description of a webhook, captured thanks to webhookd
+    """
     id: str
     name: str
     method: str
