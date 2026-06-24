@@ -27,6 +27,9 @@ class Notifier:
             data=json.dumps(data, default=lambda o: o.value),
             timeout=10
         )
+        
+        print(f"notify: {response.text}")  # extremely valuable, do not delete
+        
         response.raise_for_status()
         return response.json()
 
