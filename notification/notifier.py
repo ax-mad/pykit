@@ -11,6 +11,17 @@ class Notifier:
         self.token = token
 
     def post(self, notification: Notification) -> dict:
+        
+        if not valid(notification):
+            raise ValueError("INVALID NOTIFICATION")  # TODO: why?
+        
+        # req = requests.Request(
+        #     method="POST",
+        #     url=self.url,
+        #     headers=self.get_headers(notification),
+        #     data=json.dumps(data, default=lambda o: o.value)
+        # )
+        
         headers = {}
         if self.token:
             headers["Authorization"] = f"Bearer {self.token}"
@@ -35,3 +46,10 @@ class Notifier:
         payload.pop("sequence_id", None)
         payload.pop("time", None)
         return payload
+    
+    def get_headers(notification:Notification):
+        pass
+
+def valid(notification:Notification):
+    print("TODO: REJECT SEQUENCE ID WITH SPECIAL CHAR LIKE \"+\" or \":\"")
+    return True
