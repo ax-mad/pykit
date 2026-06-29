@@ -30,18 +30,18 @@ class Webhook:
             x_forwarded_for=os.environ.get("x_forwarded_for", ""),
             x_webauth_user=os.environ.get("x_webauth_user", "anon"),
             content_type=content_type,
-            payload=cls.parse_payload(content_type, payload),
+            payload=json.loads(payload),
         )
 
-    @staticmethod
-    def parse_payload(content_type: str, data: str) -> dict:
-        if not data:
-            return {}
-
-        if "application/x-www-form-urlencoded" in content_type:
-            return dict(parse_qsl(data))
-
-        if "application/json" in content_type:
-            return json.loads(data)
-
-        return {}
+#     @staticmethod
+#     def parse_payload(content_type: str, data: str) -> dict:
+#         if not data:
+#             return {}
+# 
+#         if "application/x-www-form-urlencoded" in content_type:
+#             return dict(parse_qsl(data))
+# 
+#         if "application/json" in content_type:
+#             return json.loads(data)
+# 
+#         return {}
