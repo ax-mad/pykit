@@ -20,7 +20,7 @@ class Webhook:
     @classmethod
     def from_env(cls):
         content_type = os.environ.get("content_type", "text/plain")
-        data = os.environ.get("data") or ""
+        payload = os.environ.get("payload") or ""
 
         return cls(
             id=os.environ.get("hook_id", ""),
