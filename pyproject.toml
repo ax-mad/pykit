@@ -3,9 +3,10 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "axjab-pykit"
+name = "pykit"
 version = "0"
-description = "Shared Python utilities for axjab services"
+description = "Reusable Python components and utilities for my shitty applications."
+readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "requests"
@@ -13,3 +14,6 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 where = ["."]
+include = [
+    "axjab.*",
+]
